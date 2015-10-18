@@ -20,9 +20,10 @@ module.exports = {
   module: {
     loaders: [{
       test: /\.js$/,
-      loaders: ['babel'],
+      loader: 'babel',
       exclude: /node_modules/,
-      include: __dirname
+      include: __dirname,
+      query: {stage: 0, plugins: ['./babelRelayPlugin']}
     }]
   }
 };
