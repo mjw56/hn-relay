@@ -3,8 +3,6 @@ import path from 'path';
 import {introspectionQuery} from 'graphql/utilities';
 var fetch = require('node-fetch');
 
-console.log('wtf', introspectionQuery)
-
 fetch('http://localhost:3100/graphql', {
   method: 'post',
   body: `query=${introspectionQuery}`
@@ -18,6 +16,7 @@ fetch('http://localhost:3100/graphql', {
       JSON.stringify(result.errors, null, 2)
     );
   } else {
+    console.log(result)
     fs.writeFileSync(
       path.join(__dirname, '../data/schema.json'),
       JSON.stringify(result, null, 2)

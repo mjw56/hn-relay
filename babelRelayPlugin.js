@@ -1,16 +1,4 @@
-var babelRelayPlugin   = require('babel-relay-plugin');
-var introspectionQuery = require('graphql/utilities').introspectionQuery;
-var request            = require('sync-request');
+import babelRelayPlugin from 'babel-relay-plugin';
+import schema from './src/data/schema.json';
 
-var graphqlUrl = 'http://localhost:3100/graphql';
-var response = request('GET', graphqlUrl, {
-  qs: {
-    query: introspectionQuery
-  }
-});
-
-var schema = JSON.parse(response.body.toString('utf-8'));
-
-module.exports = babelRelayPlugin(schema.data, {
-  abortOnError: true,
-});
+export default babelRelayPlugin(schema.data, {abortOnError: true});
