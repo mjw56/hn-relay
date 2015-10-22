@@ -8,10 +8,9 @@ class HNApp extends Component {
 
   render() {
     const {topItems} = this.props;
-    console.log('skizzo', topItems);
     return (
       <div>
-        <h1>Hello World</h1>
+        {topItems.items.edges.map(i => <p>{i.node.title}</p>)}
       </div>
     );
   }
@@ -22,13 +21,11 @@ HNApp.propTypes = {};
 export default Relay.createContainer(HNApp, {
   fragments: {
     topItems: () => Relay.QL`
-      fragment on Query {
-        topItems {
-          items(first: 10) {
-            edges {
-              node {
-                title
-              }
+      fragment on TopItem {
+        items(first: 10) {
+          edges {
+            node {
+              title
             }
           }
         }

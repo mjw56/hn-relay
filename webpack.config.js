@@ -18,12 +18,17 @@ module.exports = {
     new webpack.NoErrorsPlugin()
   ],
   module: {
-    loaders: [{
-      test: /\.js$/,
-      loader: 'babel',
-      exclude: /node_modules/,
-      include: __dirname,
-      query: {stage: 0, plugins: ['./babelRelayPlugin']}
-    }]
+    loaders: [
+      {
+        test: /\.js$/,
+        loader: 'babel',
+        exclude: /node_modules/,
+        query: {stage: 0, plugins: ['./babelRelayPlugin']}
+      },
+      {include: /\.json$/, loaders: ["json-loader"]}
+    ]
+  },
+  resolve: {
+    extensions: ['', '.json', '.jsx', '.js']
   }
 };

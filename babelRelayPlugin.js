@@ -1,4 +1,6 @@
-import babelRelayPlugin from 'babel-relay-plugin';
-import schema from './src/data/schema.json';
+var babelRelayPlugin = require('babel-relay-plugin');
+var schema = require('./src/data/schema.json');
 
-export default babelRelayPlugin(schema.data, {abortOnError: true});
+module.exports = babelRelayPlugin(schema.data, {
+  abortOnError: true,
+});
