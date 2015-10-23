@@ -24,8 +24,7 @@ module.exports = {
         loader: 'babel',
         exclude: /node_modules/,
         query: {stage: 0, plugins: ['./babelRelayPlugin']}
-      },
-      {include: /\.json$/, loaders: ["json-loader"]}
+      }
     ]
   },
   resolve: {
