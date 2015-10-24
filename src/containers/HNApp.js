@@ -1,22 +1,15 @@
 import React, { Component, PropTypes } from 'react';
 import Relay from 'react-relay';
 
-class HNApp extends Component {
-  constructor(props) {
-    super(props);
-  }
+const HNApp = (props) => (
+  <ul>
+    {props.topItems.items.edges.map((i, idx) => <li key={idx}>{i.node.title}</li>)}
+  </ul>
+);
 
-  render() {
-    const {topItems} = this.props;
-    return (
-      <div>
-        {topItems.items.edges.map(i => <p>{i.node.title}</p>)}
-      </div>
-    );
-  }
-}
-
-HNApp.propTypes = {};
+HNApp.propTypes = {
+  topItems: PropTypes.object.isRequired
+};
 
 export default Relay.createContainer(HNApp, {
   fragments: {
