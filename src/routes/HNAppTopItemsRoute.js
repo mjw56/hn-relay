@@ -5,5 +5,5 @@ export default class extends Relay.Route {
     topItems: () => Relay.QL`
       query { topItems }`,
   };
-  static routeName = 'HNAppHomeRoute';
+  static routeName = 'HNAppTopItemsRoute';
 }

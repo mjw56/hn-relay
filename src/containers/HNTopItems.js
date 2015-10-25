@@ -15,6 +15,7 @@ export default Relay.createContainer(HNApp, {
   fragments: {
     topItems: () => Relay.QL`
       fragment on TopItem {
+        __typename,
         items(first: 10) {
           edges {
             node {
