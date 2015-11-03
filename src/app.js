@@ -49,7 +49,6 @@ class App extends Component {
     const items = ['top-items', 'ask-stories'];
     return (
       <div>
-        <h1>Hello!</h1>
         <Header items={items} click={this._handleHeaderClick.bind(this)} />
         {this.pages[this.state.page]()}
       </div>
